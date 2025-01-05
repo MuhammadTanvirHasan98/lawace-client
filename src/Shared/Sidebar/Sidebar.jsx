@@ -197,6 +197,22 @@ const Sidebar = () => {
 
                     <span className="mx-4 font-medium">Upcoming Meals</span>
                   </NavLink>
+
+                  <NavLink
+                    to="blogs"
+                    end
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
+                        isActive
+                          ? "bg-blue-100  text-cyan-600"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <MdOutlineReviews className="w-5 h-5" />
+
+                    <span className="mx-4 font-medium">Blogs</span>
+                  </NavLink>
                 </>
               ) : (
                 <>

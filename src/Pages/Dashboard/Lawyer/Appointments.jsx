@@ -48,7 +48,7 @@ function Appointments() {
                       <div>
                         <h3>Name: {app?.userName}</h3>
                         <p>Email: {app?.email}</p>
-                        <p>Subject: {app?.}</p>
+                        <p>Subject: {app?.subject}</p>
                         <p>
                           Message: Professionally visualize B2C services for
                           market-driven functionalities. Seamlessly generate

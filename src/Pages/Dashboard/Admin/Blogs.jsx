@@ -83,7 +83,7 @@ const Blogs = () => {
   return (
     <div className="min-h-[calc(100vh-80px)] border-2 border-cyan-300 space-y-7">
       <div className="m-2">
-        <TableHeaderText text={"All Reviews"} count={blogs.length} />
+        <TableHeaderText text={"All Blogs"} count={blogs.length} />
 
         {isLoading || loading ? (
           <LoadingSpinner />
@@ -180,7 +180,9 @@ const Blogs = () => {
 
                           <td className="px-4 py-4 text-sm  whitespace-nowrap">
                             {blog?.isActive ? (
-                              <div className="text-center">Already Approved</div>
+                              <div className="text-center">
+                                Already Approved
+                              </div>
                             ) : (
                               <div className="flex justify-center items-center">
                                 <button

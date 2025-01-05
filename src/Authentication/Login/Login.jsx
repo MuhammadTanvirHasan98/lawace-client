@@ -65,7 +65,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl my-32 border-2 border-blue-200">
+      <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl my-32 border-2 border-[#fddec3]">
         <div
           className="hidden bg-cover bg-center lg:block lg:w-1/2"
           style={{
@@ -110,7 +110,7 @@ const Login = () => {
                 autoComplete="email"
                 name="email"
                 placeholder="Enter your email address"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-[#af7745] focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-[#ce8a4f]"
                 type="email"
                 required
               />
@@ -131,7 +131,7 @@ const Login = () => {
                 autoComplete="current-password"
                 name="password"
                 placeholder="Enter your password"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-[#af7745] focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-[#ce8a4f]"
                 type="password"
                 required
               />

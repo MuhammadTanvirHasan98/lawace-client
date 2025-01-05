@@ -43,9 +43,9 @@ const Navbar = () => {
               ? "text-lg rounded-none border-b-2 font-bold flex justify-center border-black text-black"
               : "font-bold text-lg flex justify-center rounded-none text-black"
           }
-          to="/serviceDetail"
+          to="/contactUs"
         >
-          Service Detail
+          Contact Us
         </NavLink>
       </li>
       <li>
@@ -102,7 +102,7 @@ const Navbar = () => {
                 to="/"
                 className="md:text-2xl text-xl font-extrabold merienda flex items-center"
               >
-                Law<span className="text-yellow-600">ace</span>
+                My <span className="text-yellow-600">Legal</span> Advisor
               </Link>
             </div>
           </div>

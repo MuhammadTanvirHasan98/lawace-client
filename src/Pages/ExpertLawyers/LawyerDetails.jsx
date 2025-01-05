@@ -219,6 +219,7 @@ function LawyerDetails() {
         isOpen={isAppointmentModalOpen}
         onClose={() => setIsAppointmentModalOpen(false)}
         lawyerEmail={lawyer?.lawyer_email}
+        lawyerName={lawyer?.lawyer_name}
         userName={user?.displayName}
         userEmail={user?.email}
       />

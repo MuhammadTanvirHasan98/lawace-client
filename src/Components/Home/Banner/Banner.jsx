@@ -38,7 +38,7 @@ export default function Banner() {
           {/* Left Content */}
           <div className="space-y-6 mt-10">
             <span className="text-[#C19A5B] font-semibold text-2xl">
-              WELCOME TO LAWACE
+              Welcome To My Legal Advisor
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#002626] leading-tight">
               We Are The Best

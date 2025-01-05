@@ -4,12 +4,6 @@ import { MdManageAccounts } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineReviews } from "react-icons/md";
-import { IoBagAddOutline } from "react-icons/io5";
-import { BsPeople } from "react-icons/bs";
-import { BiDish } from "react-icons/bi";
-import { MdOutlineNoMeals } from "react-icons/md";
-import { MdOutlineAddComment } from "react-icons/md";
-import { MdOutlineUpcoming } from "react-icons/md";
 import { PiGitPullRequestBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -35,8 +29,8 @@ const Sidebar = () => {
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
-              <p className="text-2xl font-bold">
-                Law<span className="text-yellow-600">ace</span>
+              <p className="text-xl font-bold">
+                My<span className="text-yellow-600">Legal</span>Advisor
               </p>
             </Link>
           </div>
@@ -62,7 +56,7 @@ const Sidebar = () => {
             <div className="w-full  flex px-4 py-2 shadow-lg  justify-center items-center bg-gradient-to-tr  from-cyan-50 to-cyan-200 mx-auto">
               <Link to="/">
                 <p className="text-xl font-bold">
-                  Law<span className="text-yellow-600">ace</span>
+                  My<span className="text-yellow-600">Legal</span>Advisor
                 </p>
               </Link>
             </div>
@@ -100,106 +94,8 @@ const Sidebar = () => {
                     <span className="mx-2 font-medium">Admin Profile</span>
                   </NavLink>
 
-                  {/* Manage Users: */}
                   <NavLink
-                    to="manageUsers"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100  hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <BsPeople className="w-5 h-5" />
-                    <span className="mx-4 font-medium">Manage Users</span>
-                  </NavLink>
-
-                  {/* Add Meal: */}
-                  <NavLink
-                    to="addMeal"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <IoBagAddOutline className="w-5 h-5" />
-                    <span className="mx-4 font-medium">Add Meal</span>
-                  </NavLink>
-
-                  {/* All Meals:*/}
-                  <NavLink
-                    to="allMeals"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <MdOutlineNoMeals className="w-5 h-5" />
-
-                    <span className="mx-4 font-medium">All Meals</span>
-                  </NavLink>
-
-                  {/* All Reviews: */}
-                  <NavLink
-                    to="allReviews"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100  hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <MdOutlineAddComment className="w-5 h-5" />
-                    <span className="mx-4 font-medium">All Reviews</span>
-                  </NavLink>
-
-                  {/* Serve Meals: */}
-                  <NavLink
-                    to="serveMeals"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <BiDish className="w-5 h-5" />
-                    <span className="mx-4 font-medium">Serve Meals</span>
-                  </NavLink>
-
-                  {/* Upcoming Meals: */}
-                  <NavLink
-                    to="upcomingMeals"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <MdOutlineUpcoming className="w-5 h-5" />
-
-                    <span className="mx-4 font-medium">Upcoming Meals</span>
-                  </NavLink>
-
-                  <NavLink
-                    to="blogs"
+                    to="allBlogs"
                     end
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
@@ -211,7 +107,7 @@ const Sidebar = () => {
                   >
                     <MdOutlineReviews className="w-5 h-5" />
 
-                    <span className="mx-4 font-medium">Blogs</span>
+                    <span className="mx-4 font-medium">All Blogs</span>
                   </NavLink>
                 </>
               ) : (

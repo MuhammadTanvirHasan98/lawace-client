@@ -1,5 +1,6 @@
 import { ImFacebook, ImInstagram, ImLinkedin } from "react-icons/im";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/favicon.png";
 
 export default function Footer() {
   return (
@@ -116,13 +117,11 @@ export default function Footer() {
         <div className="mt-10 border-t border-gray-600 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 bg-[#060c0c] p-6 rounded-xl pb-8">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8">
-              <img
-                src="/placeholder.svg"
-                alt="Lawace Logo"
-                className="w-full h-full object-contain"
-              />
+              <img src={logo} alt="" className="w-8 rounded-full mr-1" />
             </div>
-            <span className="text-2xl font-bold">Lawace</span>
+            <span className="text-xl font-bold">
+              My<span className="text-yellow-600">Legal</span>Advisor
+            </span>
           </div>
           <div className="text-gray-300 text-sm">
             Copyright © 2025. All rights reserved.

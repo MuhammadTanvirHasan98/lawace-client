@@ -5,10 +5,8 @@ import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import UserProfile from "../Pages/Dashboard/Profiles/UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
-import UserRoute from "./UserRoute";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import BlogDetails from "../Pages/AllBlogs/BlogDetails";
 import UpdateLawyerProfile from "../Pages/Dashboard/Lawyer/UpdateLawyerProfile";
@@ -17,6 +15,8 @@ import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
 import LawyerDetails from "../Pages/ExpertLawyers/LawyerDetails";
 import Appointments from "../Pages/Dashboard/Lawyer/Appointments";
 import Blogs from "../Pages/Dashboard/Admin/Blogs";
+import LawyerRoute from "./LawyerRoute";
+import ContactUs from "../Components/Home/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/expertLawyers",
         element: <ExpertLawyers />,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs />,
       },
       {
         path: "/lawyer/:id",
@@ -82,9 +86,9 @@ const router = createBrowserRouter([
         path: "updateLawyerProfile",
         element: (
           <PrivateRoute>
-            <UserRoute>
+            <LawyerRoute>
               <UpdateLawyerProfile />
-            </UserRoute>
+            </LawyerRoute>
           </PrivateRoute>
         ),
       },
@@ -92,14 +96,14 @@ const router = createBrowserRouter([
         path: "allAppointments",
         element: (
           <PrivateRoute>
-            <UserRoute>
+            <LawyerRoute>
               <Appointments />
-            </UserRoute>
+            </LawyerRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: "blogs",
+        path: "allBlogs",
         element: (
           <PrivateRoute>
             <AdminRoute>
@@ -108,18 +112,6 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
-      // Admin Routes
-      // {
-      //   path: "manageUsers",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AdminRoute>
-      //         <ManageUsers />
-      //       </AdminRoute>
-      //     </PrivateRoute>
-      //   ),
-      // },
     ],
   },
 ]);

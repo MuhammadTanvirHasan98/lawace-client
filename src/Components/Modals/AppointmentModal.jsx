@@ -7,6 +7,7 @@ const AppointmentModal = ({
   isOpen,
   onClose,
   lawyerEmail,
+  lawyerName,
   userName,
   userEmail,
 }) => {
@@ -17,7 +18,7 @@ const AppointmentModal = ({
     subject: "",
     message: "",
     documents: null,
-    consultationType: "free_consultation",
+    consultationType: "free",
   });
 
   const handleSubmit = async (e) => {
@@ -33,6 +34,7 @@ const AppointmentModal = ({
         data.append("documents", formData.documents);
       }
       data.append("lawyerEmail", lawyerEmail);
+      data.append("lawyerName", lawyerName);
       data.append("userName", userName);
       data.append("userEmail", userEmail);
 

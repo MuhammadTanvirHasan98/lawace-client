@@ -4,7 +4,7 @@ import useAuth from "../Hooks/useAuth";
 import LoadingSpinner from "../Components/Common/LoadingSpinner";
 import useRole from "../Hooks/useRole";
 
-const UserRoute = ({ children }) => {
+const LawyerRoute = ({ children }) => {
   const [role, isLoading] = useRole();
   const { user, loading } = useAuth();
 
@@ -13,8 +13,8 @@ const UserRoute = ({ children }) => {
   return <Navigate to="/dashboard" />;
 };
 
-export default UserRoute;
+export default LawyerRoute;
 
-UserRoute.propTypes = {
+LawyerRoute.propTypes = {
   children: PropTypes.element,
 };

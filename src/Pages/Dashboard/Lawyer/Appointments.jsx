@@ -22,6 +22,13 @@ function Appointments() {
     enabled: !!user?.email,
   });
 
+  const handleApprove = async (id, app) => {
+    console.log({ id, app });
+
+    const { data } = await axiosSecure.patch(`/appointment`, { id, app });
+    console.log(data);
+  };
+
   console.log(appointments);
 
   return (
@@ -43,25 +50,27 @@ function Appointments() {
                   {appointments.map((app) => (
                     <div
                       key={app?._id}
-                      className="overflow-hidden border border-slate-200 p-4 mb-2"
+                      className="overflow-hidden border space-y-2 border-slate-200 p-4 mb-2"
                     >
                       <div>
                         <h3>Name: {app?.userName}</h3>
-                        <p>Email: {app?.email}</p>
-                        <p>Subject: {app?.}</p>
-                        <p>
-                          Message: Professionally visualize B2C services for
-                          market-driven functionalities. Seamlessly generate
-                          maintainable web services for adaptive interfaces.
-                          Assertively morph wireless ideas.
-                        </p>
+                        <p>Email: {app?.userEmail}</p>
+                        <p>Subject: {app?.subject}</p>
+                        <p>Message: {app?.message}</p>
                       </div>
                       <div className="flex justify-between">
-                        <p>Consultation Type: Online</p>
+                        <div>
+                          <p>Consultation Type: {app?.consultationType}</p>
+                          <p>Attached Documents:{app?.documentUrl}</p>
+                        </div>
+
                         <div className="flex gap-2 items-center">
-                          <p>Status: pending</p>
-                          <button className="btn btn-sm btn-outline">
-                            Approval
+                          <p>Status: {app?.status}</p>
+                          <button
+                            onClick={() => handleApprove(app?._id, app)}
+                            className="btn btn-sm btn-outline"
+                          >
+                            Give Approval
                           </button>
                         </div>
                       </div>

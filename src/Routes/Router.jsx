@@ -6,19 +6,14 @@ import Register from "../Authentication/Register/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import UserProfile from "../Pages/Dashboard/Profiles/UserProfile";
-import MealDetails from "../Components/Common/MealDetails";
-import RequestedMeals from "../Pages/Dashboard/User/RequestedMeals";
-import MyReviews from "../Pages/Dashboard/User/MyReviews";
-import PaymentHistory from "../Pages/Dashboard/User/PaymentHistory";
-import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
-import DasAllMeals from "../Pages/Dashboard/Admin/DasAllMeals";
-import AllReviews from "../Pages/Dashboard/Admin/AllReviews";
-import ServeMeals from "../Pages/Dashboard/Admin/ServeMeals";
 import PrivateRoute from "./PrivateRoute";
-import AdminRoute from "./AdminRoute";
+// import AdminRoute from "./AdminRoute";
 import UserRoute from "./UserRoute";
-import AddMeal from "../Pages/Dashboard/Admin/AddMeal";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
+import BlogDetails from "../Pages/AllBlogs/BlogDetails";
+import UpdateLawyerProfile from "../Pages/Dashboard/Lawyer/UpdateLawyerProfile";
+import LawyerProfile from "../Pages/Dashboard/Profiles/LawyerProfile";
+import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
 
 const router = createBrowserRouter([
   {
@@ -35,10 +30,14 @@ const router = createBrowserRouter([
         element: <AllBlogs />,
       },
       {
-        path: "/mealDetails/:id",
+        path: "/expertLawyers",
+        element: <ExpertLawyers />,
+      },
+      {
+        path: "/blogDetails/:id",
         element: (
           <PrivateRoute>
-            <MealDetails />
+            <BlogDetails />
           </PrivateRoute>
         ),
       },
@@ -65,92 +64,32 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            <UserProfile />
+            <LawyerProfile />
           </PrivateRoute>
         ),
       },
       {
-        path: "requestedMeals",
+        path: "updateLawyerProfile",
         element: (
           <PrivateRoute>
             <UserRoute>
-              <RequestedMeals />
-            </UserRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "myReviews",
-        element: (
-          <PrivateRoute>
-            <UserRoute>
-              <MyReviews />
-            </UserRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "paymentHistory",
-        element: (
-          <PrivateRoute>
-            <UserRoute>
-              <PaymentHistory />
+              <UpdateLawyerProfile />
             </UserRoute>
           </PrivateRoute>
         ),
       },
 
       // Admin Routes
-      {
-        path: "manageUsers",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <ManageUsers />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "addMeal",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <AddMeal />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "allMeals",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <DasAllMeals />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "allReviews",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <AllReviews />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "serveMeals",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <ServeMeals />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "manageUsers",
+      //   element: (
+      //     <PrivateRoute>
+      //       <AdminRoute>
+      //         <ManageUsers />
+      //       </AdminRoute>
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
 ]);

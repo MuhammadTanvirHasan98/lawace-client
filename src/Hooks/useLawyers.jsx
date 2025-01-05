@@ -1,21 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useBlogs = (search = "") => {
+const useLawyers = () => {
   const axiosPublic = useAxiosPublic();
 
   const {
-    data: allBlogs = [],
+    data: lawyers = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["allBlogs", search],
+    queryKey: ["all-lawyers"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/blogs", {
-        params: {
-          search,
-        },
-      });
+      const res = await axiosPublic.get("/lawyers");
       if (res.status === 204) {
         return []; // Return empty array if no content
       }
@@ -24,7 +20,7 @@ const useBlogs = (search = "") => {
     enabled: true, // Always fetch regardless of filters
   });
 
-  return [allBlogs, isLoading, refetch];
+  return [lawyers, isLoading, refetch];
 };
 
-export default useBlogs;
+export default useLawyers;

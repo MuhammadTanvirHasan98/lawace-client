@@ -1,17 +1,37 @@
 import "animate.css";
 import { GoArrowRight } from "react-icons/go";
 import bannerImg from "../../../assets/images/banner-img.png";
+import lawyer from "../../../assets/images/lawyer.png";
+import legal from "../../../assets/images/legal.png";
+import court from "../../../assets/images/court.png";
+import global from "../../../assets/images/global.png";
 
 export default function Banner() {
+  const services = [
+    {
+      img: <img src={lawyer} className="w-8 h-8" />,
+      title: "Lawyer Advice",
+      subtitle: "Get a Free",
+    },
+    {
+      img: <img src={legal} className="w-8 h-8" />,
+      title: "Legal Counsel",
+      subtitle: "Best Advice",
+    },
+    {
+      img: <img src={court} className="w-8 h-8" />,
+      title: "Court Performance",
+      subtitle: "Case Study",
+    },
+    {
+      img: <img src={global} className="w-8 h-8" />,
+      title: "Global Lawyer",
+      subtitle: "Best For All Law",
+    },
+  ];
+
   return (
-    <div
-    // style={{
-    //   backgroundImage: `url(${bgBanner})`,
-    //   backgroundSize: "cover",
-    //   backgroundPosition: "center",
-    // }}
-    // className="relative bg-[#F8F6F3]"
-    >
+    <div>
       {/* Main Banner Section */}
       <div className="container mx-auto p-16 pb-0 pt-36 w-[70%]">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -55,48 +75,7 @@ export default function Banner() {
 
       {/* Service Boxes */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          {
-            icon: (
-              <img
-                src="../../../assets/images/Lawyer-Advice.svg"
-                className="w-8 h-8"
-              />
-            ),
-            title: "Lawyer Advice",
-            subtitle: "Get a Free",
-          },
-          {
-            icon: (
-              <img
-                src="../../../assets/images/Lawyer-Advice.svg"
-                className="w-8 h-8"
-              />
-            ),
-            title: "Legal Counsel",
-            subtitle: "Best Advice",
-          },
-          {
-            icon: (
-              <img
-                src="../../../assets/images/Lawyer-Advice.svg"
-                className="w-8 h-8"
-              />
-            ),
-            title: "Court Performance",
-            subtitle: "Case Study",
-          },
-          {
-            icon: (
-              <img
-                src="../../../assets/images/Lawyer-Advice.svg"
-                className="w-8 h-8"
-              />
-            ),
-            title: "Global Lawyer",
-            subtitle: "Best For All Law",
-          },
-        ].map((service, index) => (
+        {services.map((service, index) => (
           <div
             key={service.title}
             className={`flex items-center gap-4 p-6 ${
@@ -104,7 +83,7 @@ export default function Banner() {
             } text-white hover:bg-[#C19A5B] transition-colors cursor-pointer`}
           >
             <div className="text-[#C19A5B] group-hover:text-white">
-              {service.icon}
+              {service.img}
             </div>
             <div>
               <h3 className="font-semibold">{service.title}</h3>

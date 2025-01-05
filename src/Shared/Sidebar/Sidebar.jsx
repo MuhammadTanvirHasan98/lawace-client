@@ -10,7 +10,6 @@ import { BiDish } from "react-icons/bi";
 import { MdOutlineNoMeals } from "react-icons/md";
 import { MdOutlineAddComment } from "react-icons/md";
 import { MdOutlineUpcoming } from "react-icons/md";
-import { MdOutlinePayments } from "react-icons/md";
 import { PiGitPullRequestBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -23,6 +22,7 @@ const Sidebar = () => {
   const [isActive, setActive] = useState(false);
   const navigate = useNavigate();
   const [role, isLoading] = useRole();
+  console.log("From Sidebar:", role);
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -36,7 +36,7 @@ const Sidebar = () => {
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
               <p className="text-2xl font-bold">
-                Edu<span className="text-yellow-600">Feast</span> Hostel
+                Law<span className="text-yellow-600">ace</span>
               </p>
             </Link>
           </div>
@@ -53,7 +53,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-blue-50  w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-blue-50  w-72 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -62,7 +62,7 @@ const Sidebar = () => {
             <div className="w-full  flex px-4 py-2 shadow-lg  justify-center items-center bg-gradient-to-tr  from-cyan-50 to-cyan-200 mx-auto">
               <Link to="/">
                 <p className="text-xl font-bold">
-                  Edu<span className="text-yellow-600">Feast</span> Hostel
+                  Law<span className="text-yellow-600">ace</span>
                 </p>
               </Link>
             </div>
@@ -218,7 +218,7 @@ const Sidebar = () => {
 
                   {/* Statistics */}
                   <NavLink
-                    to="requestedMeals"
+                    to="updateLawyerProfile"
                     end
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100  hover:text-cyan-600 ${
@@ -229,7 +229,9 @@ const Sidebar = () => {
                     }
                   >
                     <PiGitPullRequestBold className="w-5 h-5" />
-                    <span className="mx-4 font-medium">Requested Meals</span>
+                    <span className="mx-4 font-medium">
+                      Update Lawyer Profile
+                    </span>
                   </NavLink>
 
                   {/* Add Room */}
@@ -246,23 +248,7 @@ const Sidebar = () => {
                   >
                     <MdOutlineReviews className="w-5 h-5" />
 
-                    <span className="mx-4 font-medium">My Reviews</span>
-                  </NavLink>
-                  {/* My Listing */}
-                  <NavLink
-                    to="paymentHistory"
-                    end
-                    className={({ isActive }) =>
-                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${
-                        isActive
-                          ? "bg-blue-100  text-cyan-600"
-                          : "text-gray-600"
-                      }`
-                    }
-                  >
-                    <MdOutlinePayments className="w-5 h-5" />
-
-                    <span className="mx-4 font-medium">Payment History</span>
+                    <span className="mx-4 font-medium">All Appointments</span>
                   </NavLink>
                 </>
               )}

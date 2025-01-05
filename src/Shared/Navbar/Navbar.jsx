@@ -52,9 +52,9 @@ const Navbar = () => {
               ? "text-lg rounded-none border-b-2 font-bold flex justify-center border-black text-black"
               : "font-bold text-lg flex justify-center rounded-none text-black"
           }
-          to="/teamDetail"
+          to="/expertLawyers"
         >
-          Team Detail
+          Expert Lawyers
         </NavLink>
       </li>
     </div>

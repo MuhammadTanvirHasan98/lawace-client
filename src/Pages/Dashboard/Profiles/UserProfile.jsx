@@ -8,6 +8,7 @@ const UserProfile = () => {
   const { user, loading } = useAuth();
   console.log(profile, isLoading);
   const [role] = useRole();
+  console.log(role);
 
   return (
     <div>

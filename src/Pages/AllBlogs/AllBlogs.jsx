@@ -1,6 +1,4 @@
 import { useState } from "react";
-import MealCard from "../../Components/Common/MealCard";
-
 import LoadingSpinner from "../../Components/Common/LoadingSpinner";
 import EmptyStateText from "../../Components/Common/EmptyStateText";
 import PageHeader from "../../Components/Common/PageHeader";
@@ -12,15 +10,16 @@ import toast from "react-hot-toast";
 import BlogModal from "../../Components/Modals/BlogModal";
 import imageUpload from "../../Utils/ImageUpload";
 import useBlogs from "../../Hooks/useBlogs";
+import Swal from "sweetalert2";
+import BlogCard from "./BlogCard";
 
 const AllBlogs = () => {
   const [search, setSearch] = useState("");
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  const [allBlogs, isLoading] = useBlogs(search);
+  const [allBlogs, isLoading, refetch] = useBlogs(search);
   console.log("All Blogs:", allBlogs);
-
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.search.value;
@@ -34,13 +33,15 @@ const AllBlogs = () => {
     const image = form.image.files[0];
     const description = form.description.value;
 
-    if (description.length > 500)
+    if (description.length > 1000)
       return toast.error("Your character limit exceeds");
 
     let blog_image = "";
     if (image) {
       blog_image = await imageUpload(image);
     }
+
+    const date = new Date(Date.now()).toLocaleDateString();
 
     console.table({ blog_title, blog_image, description });
 
@@ -54,7 +55,7 @@ const AllBlogs = () => {
       blog_image,
       description,
       like: 0,
-      date: Date.now(),
+      date,
     };
 
     console.log(blogInfo);
@@ -63,14 +64,17 @@ const AllBlogs = () => {
       const { data } = await axiosSecure.post("/blog", blogInfo);
       console.log(data);
       if (data.acknowledged) {
+        Swal.fire({
+          title: "Blog Posted!",
+          text: "You have posted blog successfully.",
+          icon: "success",
+        });
         document.getElementById("blog_modal").close();
-        toast.success("Thanks for posting blog!");
-        // refetchReviews();
         form.reset();
+        refetch();
       }
     } catch (err) {
       console.log(err.message);
-      toast.error(err.message);
     }
   };
 
@@ -79,7 +83,7 @@ const AllBlogs = () => {
   };
 
   return (
-    <div>
+    <div className="mb-32">
       <PageHeader title={"All Blogs"} track={"Home > All Blogs"} />
       <div className="w-[80%] mx-auto py-12 space-y-16">
         <div className="flex justify-between items-center">
@@ -122,8 +126,8 @@ const AllBlogs = () => {
           <EmptyStateText text={"You have to try more..."} />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
-            {allBlogs.map((meal) => (
-              <MealCard key={meal._id} meal={meal} />
+            {allBlogs.map((blog) => (
+              <BlogCard key={blog?._id} blog={blog} />
             ))}
           </div>
         )}

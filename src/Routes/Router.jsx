@@ -7,7 +7,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import UserProfile from "../Pages/Dashboard/Profiles/UserProfile";
 import PrivateRoute from "./PrivateRoute";
-// import AdminRoute from "./AdminRoute";
+import AdminRoute from "./AdminRoute";
 import UserRoute from "./UserRoute";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import BlogDetails from "../Pages/AllBlogs/BlogDetails";
@@ -16,6 +16,7 @@ import LawyerProfile from "../Pages/Dashboard/Profiles/LawyerProfile";
 import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
 import LawyerDetails from "../Pages/ExpertLawyers/LawyerDetails";
 import Appointments from "../Pages/Dashboard/Lawyer/Appointments";
+import Blogs from "../Pages/Dashboard/Admin/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,16 @@ const router = createBrowserRouter([
             <UserRoute>
               <Appointments />
             </UserRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "blogs",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <Blogs />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },

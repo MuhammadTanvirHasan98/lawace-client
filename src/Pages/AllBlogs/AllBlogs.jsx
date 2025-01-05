@@ -18,7 +18,8 @@ const AllBlogs = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  const [allBlogs, isLoading, refetch] = useBlogs(search);
+  const [_allBlogs, isLoading, refetch] = useBlogs(search);
+  const allBlogs = _allBlogs?.filter(e => e.isActive);
   console.log("All Blogs:", allBlogs);
   const handleSearch = (e) => {
     e.preventDefault();

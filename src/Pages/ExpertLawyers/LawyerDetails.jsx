@@ -1,13 +1,39 @@
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { Phone, Mail, Scale, ScrollText, Share2, Star } from "lucide-react";
+import { Phone, Mail, Scale, ScrollText, Star } from "lucide-react";
 import PageHeader from "../../Components/Common/PageHeader";
 import LoadingSpinner from "../../Components/Common/LoadingSpinner";
+import useAuth from "../../Hooks/useAuth";
+import { useState, useEffect } from "react";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 function LawyerDetails() {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const [isRatingGiven, setIsRatingGiven] = useState(true);
+  const [givenRating, setGivenRating] = useState(0);
+
+  useEffect(() => {
+    const checkRatingStatus = async () => {
+      if (!user) {
+        setIsRatingGiven(true);
+        return;
+      }
+
+      try {
+        const { data } = await axiosSecure.get(`/ratings/${id}/${user.email}`);
+        setIsRatingGiven(data.hasRated);
+        setGivenRating(data.rating)
+      } catch (error) {
+        console.error("Error checking rating status:", error);
+      }
+    };
+
+    checkRatingStatus();
+  }, [id, user, axiosSecure]);
 
   const {
     data: lawyer = {},
@@ -23,7 +49,6 @@ function LawyerDetails() {
   });
 
   const {
-    _id,
     lawyer_image,
     lawyer_email,
     lawyer_name,
@@ -31,11 +56,33 @@ function LawyerDetails() {
     phone,
     professional_info,
     qualification,
-    rating,
+    ratingCount,
+    totalRating,
     experience,
   } = lawyer;
 
-  console.log({ id, lawyer });
+  const avgRating =
+    ratingCount > 0 ? (totalRating / ratingCount).toFixed(1) : 0;
+
+  console.log({ id, lawyer, user });
+
+  const handleRating = async (_givenRating) => {
+    try {
+      await axiosSecure.post("/ratings", {
+        lawyerId: id,
+        userId: user?.email,
+        rating: _givenRating,
+      });
+
+      setGivenRating(_givenRating);
+      setIsRatingGiven(true);
+
+      refetch();
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+    }
+  };
+
   return (
     <div>
       <PageHeader
@@ -55,7 +102,7 @@ function LawyerDetails() {
                 className="w-full rounded-2xl object-cover aspect-[3/4]"
               />
               <div className="absolute bottom-4 right-4 bg-white text-[#B08968]  rounded-lg  hover:bg-[#003B4F] flex items-center px-3 gap-1  transition-colors">
-                <Star /> <p className="text-2xl font-semibold">{rating}</p>
+                <Star /> <p className="text-2xl font-semibold">{avgRating}</p>
               </div>
             </div>
 
@@ -126,8 +173,34 @@ function LawyerDetails() {
                     </div>
                   </div>
                 </div>
-                {/* Get appointment button */}
-                <div>
+
+                <div className="lg:!mt-16 flex flex-row-reverse justify-between items-center">
+                  {/* rating */}
+                  <div className="flex flex-col gap-1">
+                    <span>Give the lawyer a rating!</span>
+
+                    {/* <div className="rating rating-md">
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <input
+                          key={value}
+                          type="radio"
+                          name="rating"
+                          className="mask mask-star-2 bg-[#B08968]"
+                          value={value}
+                          onChange={handleRating}
+                          disabled={isRatingGiven}
+                        />
+                      ))}
+                    </div> */}
+                    <Rating
+                      style={{ maxWidth: 130 }}
+                      value={givenRating}
+                      onChange={handleRating}
+                      isDisabled={isRatingGiven}
+                    />
+                  </div>
+
+                  {/* Get appointment button */}
                   <button className="btn mt-4 btn-outline">
                     GET A APPOINTMENT
                   </button>

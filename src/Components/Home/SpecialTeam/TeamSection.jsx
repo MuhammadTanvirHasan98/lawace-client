@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import lawyer1 from "../../../assets/images/lawyer1.jpg";
 import lawyer2 from "../../../assets/images/lawyer2.jpg";
 import lawyer3 from "../../../assets/images/lawyer3.jpg";
+import useLawyers from "../../../Hooks/useLawyers";
+import LawyerCard from "../../../Pages/ExpertLawyers/LawyerCard";
 
 function TeamSection() {
+  const [lawyers, isloading] = useLawyers();
+
   return (
     <div className=" bg-[#f4ede7] py-32 pb-52 relative">
       <div className="flex gap-4 justify-center items-center w-[70%] mx-auto">
@@ -27,21 +31,9 @@ function TeamSection() {
 
         {/* Right Section */}
         <div className="grid grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <img className="rounded-xl" src={lawyer1} alt="" />
-            <p className="text-gray-500">Criminal Lawyer</p>
-            <h3 className="text-2xl font-bold">Michel Holway</h3>
-          </div>
-          <div className="space-y-2">
-            <img className="rounded-xl" src={lawyer2} alt="" />
-            <p className="text-gray-500">Property Lawyer</p>
-            <h3 className="text-2xl font-bold">George Damian</h3>
-          </div>
-          <div className="space-y-2">
-            <img className="rounded-xl" src={lawyer3} alt="" />
-            <p className="text-gray-500">Corporate Lawyer</p>
-            <h3 className="text-2xl font-bold">Jack Callum</h3>
-          </div>
+          {lawyers.slice(0, 3).map((lawyer) => (
+            <LawyerCard lawyer={lawyer} />
+          ))}
         </div>
       </div>
 

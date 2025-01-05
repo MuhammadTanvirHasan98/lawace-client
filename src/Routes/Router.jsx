@@ -14,6 +14,7 @@ import BlogDetails from "../Pages/AllBlogs/BlogDetails";
 import UpdateLawyerProfile from "../Pages/Dashboard/Lawyer/UpdateLawyerProfile";
 import LawyerProfile from "../Pages/Dashboard/Profiles/LawyerProfile";
 import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
+import LawyerDetails from "../Pages/ExpertLawyers/LawyerDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/expertLawyers",
         element: <ExpertLawyers />,
+      },
+      {
+        path: "/lawyer/:id",
+        element: (
+          <PrivateRoute>
+            <LawyerDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogDetails/:id",

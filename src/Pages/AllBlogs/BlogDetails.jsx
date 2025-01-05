@@ -192,7 +192,10 @@ const BlogDetails = () => {
 
   return (
     <div>
-      <PageHeader title={"Blog Details"} track={"Home > Blog > Blog Details"} />
+      <PageHeader
+        title={"Blog Details"}
+        track={"Home > All Blogs > Blog Details"}
+      />
 
       <div className="flex flex-col lg:flex-row justify-between gap-20 p-2 mt-32 mb-48 w-[80%] mx-auto">
         {/* Blog Details */}

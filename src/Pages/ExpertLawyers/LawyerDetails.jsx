@@ -8,6 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useState, useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import AppointmentModal from '../../Components/Modals/AppointmentModal';
 
 function LawyerDetails() {
   const { id } = useParams();
@@ -15,6 +16,7 @@ function LawyerDetails() {
   const { user } = useAuth();
   const [isRatingGiven, setIsRatingGiven] = useState(true);
   const [givenRating, setGivenRating] = useState(0);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
   useEffect(() => {
     const checkRatingStatus = async () => {
@@ -201,8 +203,11 @@ function LawyerDetails() {
                   </div>
 
                   {/* Get appointment button */}
-                  <button className="btn mt-4 btn-outline">
-                    GET A APPOINTMENT
+                  <button
+                    onClick={() => setIsAppointmentModalOpen(true)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  >
+                    Request Appointment
                   </button>
                 </div>
               </div>
@@ -210,6 +215,13 @@ function LawyerDetails() {
           </div>
         </div>
       )}
+      <AppointmentModal
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        lawyerEmail={lawyer?.lawyer_email}
+        userName={user?.displayName}
+        userEmail={user?.email}
+      />
     </div>
   );
 }

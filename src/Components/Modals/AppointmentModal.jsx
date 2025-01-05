@@ -17,6 +17,7 @@ const AppointmentModal = ({
     subject: "",
     message: "",
     documents: null,
+    consultationType: "free_consultation",
   });
 
   const handleSubmit = async (e) => {
@@ -25,6 +26,7 @@ const AppointmentModal = ({
 
     try {
       const data = new FormData();
+      data.append("consultationType", formData.consultationType);
       data.append("subject", formData.subject);
       data.append("message", formData.message);
       if (formData.documents) {
@@ -71,6 +73,47 @@ const AppointmentModal = ({
           </Dialog.Title>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Consultation Type
+              </label>
+              <div className="space-y-2">
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="consultationType"
+                    value="free_consultation"
+                    checked={formData.consultationType === "free_consultation"}
+                    onChange={handleChange}
+                    className="text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>Free Consultation</span>
+                </label>
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="consultationType"
+                    value="online_consultation"
+                    checked={formData.consultationType === "online_consultation"}
+                    onChange={handleChange}
+                    className="text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>Online Consultation</span>
+                </label>
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="consultationType"
+                    value="offline_consultation"
+                    checked={formData.consultationType === "offline_consultation"}
+                    onChange={handleChange}
+                    className="text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>Offline Consultation</span>
+                </label>
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Subject

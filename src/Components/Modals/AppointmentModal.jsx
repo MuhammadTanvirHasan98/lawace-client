@@ -82,8 +82,8 @@ const AppointmentModal = ({
                   <input
                     type="radio"
                     name="consultationType"
-                    value="free_consultation"
-                    checked={formData.consultationType === "free_consultation"}
+                    value="free"
+                    checked={formData.consultationType === "free"}
                     onChange={handleChange}
                     className="text-blue-600 focus:ring-blue-500"
                   />
@@ -93,8 +93,8 @@ const AppointmentModal = ({
                   <input
                     type="radio"
                     name="consultationType"
-                    value="online_consultation"
-                    checked={formData.consultationType === "online_consultation"}
+                    value="online"
+                    checked={formData.consultationType === "online"}
                     onChange={handleChange}
                     className="text-blue-600 focus:ring-blue-500"
                   />
@@ -104,8 +104,8 @@ const AppointmentModal = ({
                   <input
                     type="radio"
                     name="consultationType"
-                    value="offline_consultation"
-                    checked={formData.consultationType === "offline_consultation"}
+                    value="offline"
+                    checked={formData.consultationType === "offline"}
                     onChange={handleChange}
                     className="text-blue-600 focus:ring-blue-500"
                   />

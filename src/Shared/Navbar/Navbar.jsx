@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/images/favicon.png";
+import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [role] = useRole();
+  console.log("Role from navbar:", role);
 
   const navLinks = (
     <div className="flex flex-col  lg:flex-row gap-4 ">
@@ -122,22 +125,26 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-1.5 z-[1] p-2 shadow menu menu-sm dropdown-content  rounded-none bg-opacity-50 bg-blue-500 w-52 space-y-3 font-semibold"
+                  className="mt-1.5 z-[1] p-2 shadow menu menu-sm dropdown-content  rounded-none bg-opacity-50 bg-[#ddd9cf] w-52 space-y-3 font-semibold"
                 >
                   <p className="text-center">{user?.displayName} </p>
+                  {role === "lawyer" || role === "admin" ? (
+                    <li>
+                      <Link
+                        to="/dashboard"
+                        className="flex justify-center text-center bg-gradient-to-tl from-[#e9ca96] to-[#d39f4c] hover:from-yellow-700 hover:text-blue-800 text-black rounded-none"
+                      >
+                        Dashboard
+                      </Link>
+                    </li>
+                  ) : (
+                    ""
+                  )}
 
                   <li>
                     <Link
-                      to="/dashboard"
-                      className="flex justify-center text-center bg-gradient-to-tl from-blue-400 to-blue-600 hover:from-blue-600 hover:to-blue-400 hover:text-yellow-400 text-black rounded-none"
-                    >
-                      Dashboard
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       onClick={logOut}
-                      className="text-center block bg-gradient-to-tl from-blue-400 to-blue-600 hover:from-blue-600 hover:to-blue-400 hover:text-yellow-400 text-black rounded-none"
+                      className="flex justify-center text-center bg-gradient-to-tl from-[#e9ca96] to-[#d39f4c] hover:from-yellow-700 hover:text-blue-800 text-black rounded-none"
                     >
                       Logout
                     </Link>

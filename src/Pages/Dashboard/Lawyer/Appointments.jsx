@@ -4,6 +4,7 @@ import LoadingSpinner from "../../../Components/Common/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 function Appointments() {
   const axiosSecure = useAxiosSecure();
@@ -25,8 +26,22 @@ function Appointments() {
   const handleApprove = async (id, app) => {
     console.log({ id, app });
 
-    const { data } = await axiosSecure.patch(`/appointment`, { id, app });
-    console.log(data);
+    try {
+      const { data } = await axiosSecure.patch(`/appointment/${id}`, app);
+      console.log(data);
+      if (data.modifiedCount > 0) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have approved appointment successfully!.",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        refetch();
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   console.log(appointments);

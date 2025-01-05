@@ -10,13 +10,13 @@ import AdminRoute from "./AdminRoute";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import BlogDetails from "../Pages/AllBlogs/BlogDetails";
 import UpdateLawyerProfile from "../Pages/Dashboard/Lawyer/UpdateLawyerProfile";
-import LawyerProfile from "../Pages/Dashboard/Profiles/LawyerProfile";
 import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
 import LawyerDetails from "../Pages/ExpertLawyers/LawyerDetails";
 import Appointments from "../Pages/Dashboard/Lawyer/Appointments";
 import Blogs from "../Pages/Dashboard/Admin/Blogs";
 import LawyerRoute from "./LawyerRoute";
 import ContactUs from "../Components/Home/ContactUs/ContactUs";
+import Profile from "../Pages/Dashboard/Profiles/Profile";
 
 const router = createBrowserRouter([
   {
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            <LawyerProfile />
+            <Profile />
           </PrivateRoute>
         ),
       },

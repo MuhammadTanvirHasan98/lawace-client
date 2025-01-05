@@ -1,4 +1,3 @@
-import React from "react";
 import TableHeaderText from "../../../Components/Dashboard/TableHeaderText";
 import LoadingSpinner from "../../../Components/Common/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
@@ -44,6 +43,42 @@ function Appointments() {
     }
   };
 
+  const getFileView = (url) => {
+    // Check file extension to determine display method
+    const fileExt = url.split(".").pop().toLowerCase();
+
+    if (["jpg", "jpeg", "png"].includes(fileExt)) {
+      return (
+        <img
+          src={`${import.meta.env.VITE_AXIOS_API}${url}`}
+          alt="Uploaded document"
+          className="max-w-[200px]"
+        />
+      );
+    } else if (fileExt === "pdf") {
+      return (
+        <a
+          href={`${import.meta.env.VITE_AXIOS_API}${url}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          View PDF Document
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href={`${import.meta.env.VITE_AXIOS_API}${url}`}
+          download
+          className="text-blue-600 hover:underline"
+        >
+          Download Document
+        </a>
+      );
+    }
+  };
+
   console.log(appointments);
 
   return (
@@ -76,17 +111,23 @@ function Appointments() {
                       <div className="flex justify-between">
                         <div>
                           <p>Consultation Type: {app?.consultationType}</p>
-                          <p>Attached Documents:{app?.documentUrl}</p>
+                          {app?.documentUrl && (
+                            <p>
+                              Attached Document: {getFileView(app.documentUrl)}
+                            </p>
+                          )}
                         </div>
 
                         <div className="flex gap-2 items-center">
                           <p>Status: {app?.status}</p>
-                          <button
-                            onClick={() => handleApprove(app?._id, app)}
-                            className="btn btn-sm btn-outline"
-                          >
-                            Give Approval
-                          </button>
+                          {app?.status !== "approved" && (
+                            <button
+                              onClick={() => handleApprove(app?._id, app)}
+                              className="btn btn-sm btn-outline"
+                            >
+                              Give Approval
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>

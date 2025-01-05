@@ -236,7 +236,7 @@ const Sidebar = () => {
 
                   {/* Add Room */}
                   <NavLink
-                    to="myReviews"
+                    to="allAppointments"
                     end
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-blue-100   hover:text-cyan-600 ${

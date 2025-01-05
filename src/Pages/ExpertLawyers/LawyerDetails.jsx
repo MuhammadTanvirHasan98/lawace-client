@@ -8,7 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useState, useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import AppointmentModal from '../../Components/Modals/AppointmentModal';
+import AppointmentModal from "../../Components/Modals/AppointmentModal";
 
 function LawyerDetails() {
   const { id } = useParams();
@@ -28,7 +28,7 @@ function LawyerDetails() {
       try {
         const { data } = await axiosSecure.get(`/ratings/${id}/${user.email}`);
         setIsRatingGiven(data.hasRated);
-        setGivenRating(data.rating)
+        setGivenRating(data.rating);
       } catch (error) {
         console.error("Error checking rating status:", error);
       }
@@ -44,7 +44,7 @@ function LawyerDetails() {
   } = useQuery({
     queryKey: ["lawyer-details", id],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/lawyer/${id}`);
+      const { data } = await axiosSecure.get(`/lawyers/${id}`);
       return data;
     },
     enabled: !!id,

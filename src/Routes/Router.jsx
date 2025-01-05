@@ -15,6 +15,7 @@ import UpdateLawyerProfile from "../Pages/Dashboard/Lawyer/UpdateLawyerProfile";
 import LawyerProfile from "../Pages/Dashboard/Profiles/LawyerProfile";
 import ExpertLawyers from "../Pages/ExpertLawyers/ExpertLawyers";
 import LawyerDetails from "../Pages/ExpertLawyers/LawyerDetails";
+import Appointments from "../Pages/Dashboard/Lawyer/Appointments";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,6 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      // User Routes
       {
         index: true,
         element: (
@@ -83,6 +83,16 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <UserRoute>
               <UpdateLawyerProfile />
+            </UserRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "allAppointments",
+        element: (
+          <PrivateRoute>
+            <UserRoute>
+              <Appointments />
             </UserRoute>
           </PrivateRoute>
         ),

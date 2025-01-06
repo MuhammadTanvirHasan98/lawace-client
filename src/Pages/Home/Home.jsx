@@ -1,6 +1,7 @@
 import AboutUsSection from "../../Components/Home/AboutUs/AboutUsSection";
 import Banner from "../../Components/Home/Banner/Banner";
 import ClientServe from "../../Components/Home/ClientsServe/ClientServe";
+import GuidanceProcess from "../../Components/Home/Guidance/GuidanceProcess";
 import LatestBlogSection from "../../Components/Home/LatestBlog/LatestBlogSection";
 import ServicesSection from "../../Components/Home/Services/ServicesSection";
 import TeamSection from "../../Components/Home/SpecialTeam/TeamSection";
@@ -17,6 +18,7 @@ const Home = () => {
       <Testimonials />
       <TeamSection />
       <StatsSection />
+      <GuidanceProcess />
       <LatestBlogSection />
     </div>
   );

@@ -27,6 +27,7 @@ function LawyerDetails() {
 
       try {
         const { data } = await axiosSecure.get(`/ratings/${id}/${user.email}`);
+        console.log("Data:", data);
         setIsRatingGiven(data.hasRated);
         setGivenRating(data.rating);
       } catch (error) {

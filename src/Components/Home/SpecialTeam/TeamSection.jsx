@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
-import lawyer1 from "../../../assets/images/lawyer1.jpg";
-import lawyer2 from "../../../assets/images/lawyer2.jpg";
-import lawyer3 from "../../../assets/images/lawyer3.jpg";
 import useLawyers from "../../../Hooks/useLawyers";
 import LawyerCard from "../../../Pages/ExpertLawyers/LawyerCard";
 
 function TeamSection() {
-  const [lawyers, isloading] = useLawyers();
+  const [lawyers] = useLawyers();
 
   return (
     <div className=" bg-[#f4ede7] py-32 pb-52 relative">
@@ -31,8 +28,8 @@ function TeamSection() {
 
         {/* Right Section */}
         <div className="grid grid-cols-3 gap-6">
-          {lawyers.slice(0, 3).map((lawyer) => (
-            <LawyerCard lawyer={lawyer} />
+          {lawyers.slice(0, 3).map((lawyer, indx) => (
+            <LawyerCard key={indx} lawyer={lawyer} />
           ))}
         </div>
       </div>

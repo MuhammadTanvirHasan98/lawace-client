@@ -36,8 +36,8 @@ const Testimonials = () => {
 
       <div className="lg:w-[70%] w-[80%] mx-auto">
         <Marquee style={{}} pauseOnHover={true} speed={40}>
-          {cards.map((card) => (
-            <ReviewCard card={card} key={card._id} />
+          {cards.map((card, indx) => (
+            <ReviewCard card={card} key={indx} />
           ))}
         </Marquee>
       </div>

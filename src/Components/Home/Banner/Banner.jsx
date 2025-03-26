@@ -46,17 +46,20 @@ export default function Banner() {
               Legal System
             </h1>
             <p className="text-gray-600 max-w-lg text-lg">
-              Aliquam eu nunc imperdiet, volutpat mi vel, lobortis ligula. In
-              pharetra dignissim lacus, faucibus volutpat lorem suscipit nec.
+              We provide expert legal solutions tailored to your needs. Our team
+              ensures justice with professionalism and integrity. <br />{" "}
+              <span className="text-[#1a614c] font-semibold">
+                ‘Reliable legal guidance for every step of your journey.’
+              </span>
             </p>
 
-            <div className="flex gap-2">
-              <button className="flex items-center gap-2 bg-[#C19A5B] text-white px-6 py-3 rounded-full hover:bg-[#020101] transition duration-500">
+            <div className="flex gap-4">
+              <button className="flex items-center gap-2 bg-[#002626] text-white px-6 py-3 rounded-full hover:bg-[#C19A5B] hover:text-black font-semibold transition duration-500">
                 GET APPOINTMENT
                 <GoArrowRight className="w-4 h-4" />
               </button>
 
-              <button className="flex items-center gap-2 bg-[#C19A5B] text-white px-6 py-3 rounded-full hover:bg-[#A88347] transition-colors">
+              <button className="flex items-center gap-2 bg-[#C19A5B] text-white px-6 py-3 rounded-full hover:bg-[#A88347] font-semibold transition-colors">
                 DISCOVER MORE
                 <GoArrowRight className="w-4 h-4" />
               </button>

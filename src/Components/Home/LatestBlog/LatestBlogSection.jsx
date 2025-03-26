@@ -6,7 +6,7 @@ export default function BlogSection() {
   const [allBlogs, isLoading] = useBlogs();
 
   return (
-    <section className="py-16 px-4 mt-32">
+    <section className="py-14 px-4 ">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">

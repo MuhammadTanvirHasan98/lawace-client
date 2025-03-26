@@ -15,8 +15,9 @@ function TeamSection() {
             Our Best <br /> Experts
           </h3>
           <p className="w-[80%] mt-10">
-            Donec sit amet erat lacus. Curabitur erat nunc, aliquet a convallis
-            non, interdum non arcu.
+            Our expert legal team brings knowledge, integrity, and commitment to
+            every case, guiding you through litigation, corporate law, and
+            personal legal matters with confidence.
           </p>
           <Link
             href="#"
@@ -35,7 +36,7 @@ function TeamSection() {
       </div>
 
       {/* Subscribe Section */}
-      <div className="bg-[#011c1a] w-[70%] mx-auto absolute  top-[650px] right-[280px] text-white flex flex-col justify-center items-center py-16 p-10 rounded-3xl">
+      <div className="bg-[#011c1a] w-[70%] mx-auto absolute  top-[570px] right-[280px] text-white flex flex-col justify-center items-center py-16 p-10 rounded-3xl">
         <p className="text-xl">SUBSCRIBE FOR UPDATE</p>
         <h3 className="text-4xl font-bold mt-2 mb-8">
           Get Latest Legal Advice Now!

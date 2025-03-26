@@ -10,25 +10,25 @@ export default function ServicesSection() {
       icon: <IoScale className="w-8 h-8" />,
       title: "Professional Advice",
       description:
-        "Etiam justo vitae lacus hendrerit ornare sit amet in justo donec felis tempus augue.",
+        "Receive expert legal guidance and strategic counsel to navigate complex legal matters with confidence.",
     },
     {
       icon: <GoBriefcase className="w-8 h-8" />,
       title: "Employment Law",
       description:
-        "Etiam justo vitae lacus hendrerit ornare sit amet in justo donec felis tempus augue.",
+        "Protecting your rights in the workplace, from contracts to disputes and fair employment practices.",
     },
     {
       icon: <RiMoneyDollarBoxFill className="w-8 h-8" />,
       title: "Competitive Pricing",
       description:
-        "Etiam justo vitae lacus hendrerit ornare sit amet in justo donec felis tempus augue.",
+        "Transparent and affordable legal services without compromising quality and professionalism.",
     },
     {
       icon: <RiGraduationCapFill className="w-8 h-8" />,
       title: "Education Law",
       description:
-        "Etiam justo vitae lacus hendrerit ornare sit amet in justo donec felis tempus augue.",
+        "Ensuring legal protection and compliance in academic institutions for students, educators, and organizations.",
     },
   ];
 
@@ -57,9 +57,14 @@ export default function ServicesSection() {
           </div>
           <div className="space-y-4">
             <p className="text-gray-600">
-              Curabitur nec nibh risus. Nam tempus lacinia libero, vel mollis
-              enim faucibus fringilla. Morbi vitae risus pharetra sem semper
-              fringilla vel et odio. Nunc, id ipsum non felis mollis finibus.
+              At{" "}
+              <span className="font-semibold">
+                {" "}
+                My<span className="text-yellow-600">Legal</span>Advisor
+              </span>
+              , we provide comprehensive legal services tailored to protect your
+              rights and interests. Our dedicated team of professionals ensures
+              strategic and effective representation across various legal areas.
             </p>
             <Link
               href="#"

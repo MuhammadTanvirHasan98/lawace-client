@@ -8,7 +8,7 @@ function AboutUsSection() {
         {/* Right section */}
         <div className="relative w-1/2">
           <img src={Img} className="rounded-2xl" alt="" />
-          <div className="absolute top-60 right-10 p-10 bg-[#C19A5B] text-white border-white rounded-full border-[20px] py-16">
+          <div className="absolute top-[510px] left-[-20px] p-10 bg-[#C19A5B] text-white border-white rounded-[50px] border-[20px] py-16">
             <p className="text-2xl text-center font-semibold">
               584+ <br />
               Case Solved
@@ -19,13 +19,20 @@ function AboutUsSection() {
         {/*Left section */}
         <div className="w-1/2 py-10 space-y-8">
           <p className="text-2xl font-bold text-[#C19A5B]">About Us</p>
-          <h3 className="text-7xl font-bold">We Give Justice To The Truth</h3>
+          <h3 className="text-7xl font-bold">
+            We Uphold Justice with Integrity
+          </h3>
           <p>
-            Aliquam eu nunc imperdiet, volutpat mi vel, lobortis ligula. In
-            pharetra dignissim lacus, faucibus volutpat lorem suscipit nec. Nunc
-            fringilla arcu eu massa ornare pharetra. Etiam consectetur molestie
-            purus, sed auctor felis blandit eget. Suspendisse vitae molestie
-            est, et blandit felis.
+            At{" "}
+            <span className="font-semibold">
+              {" "}
+              My<span className="text-yellow-600">Legal</span>Advisor
+            </span>
+            , we are dedicated to protecting truth and ensuring justice. With a
+            strong commitment to fairness, we provide expert legal counsel to
+            safeguard your rights and advocate for your best interests. Our team
+            works tirelessly to navigate complex legal matters with
+            professionalism and integrity.
           </p>
 
           <div className="space-y-4">
@@ -37,9 +44,10 @@ function AboutUsSection() {
               </div>
               <div className="collapse-content">
                 <p>
-                  Etiam id justo vitae lacus hendrerit ornare sit amet in justo.
-                  Donec non felis tempus augue malesuada viverra sagittis
-                  accumsan nisl.
+                  We strive to deliver exceptional legal solutions, ensuring
+                  fairness and justice for all. Our mission is to provide
+                  strategic legal guidance that empowers individuals and
+                  businesses to make informed decisions.
                 </p>
               </div>
             </div>
@@ -51,9 +59,9 @@ function AboutUsSection() {
               </div>
               <div className="collapse-content">
                 <p>
-                  Etiam id justo vitae lacus hendrerit ornare sit amet in justo.
-                  Donec non felis tempus augue malesuada viverra sagittis
-                  accumsan nisl.
+                  To be a trusted legal partner, championing justice and setting
+                  the highest standards in the legal industry. We envision a
+                  future where everyone has access to reliable legal support.
                 </p>
               </div>
             </div>
